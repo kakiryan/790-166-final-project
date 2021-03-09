@@ -1,0 +1,209 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+%\newcommand{\enterProblemHeader}[1]{
+%    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+%    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+%}
+%
+%\newcommand{\exitProblemHeader}[1]{
+%    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+%    \stepcounter{#1}
+%    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+%}
+%
+%\setcounter{secnumdepth}{0}
+%\newcounter{partCounter}
+%\newcounter{homeworkProblemCounter}
+%\setcounter{homeworkProblemCounter}{1}
+%\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Project Proposal)}
+\newcommand{\hmwkDueDate}{February 18, 2021}
+\newcommand{\hmwkClass}{Comp790-CompBio}
+%\newcommand{\hmwkClassTime}{Section A}
+%\newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
+\newcommand{\hmwkAuthorName}{\textbf{Justin Do, Kaki Ryan}} %%modify with your name
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass\hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 3:10pm}\\
+    %$\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ }}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+%\maketitle
+
+%\pagebreak
+
+\section{Title}
+
+Using ``whole organism" single cell datasets to perform a comparative analysis of clustering methods.
+
+\section{Group Members}
+
+Justin Do and Kaki Ryan
+
+\section{Abstract}
+
+ Our project will provide a comparative analysis of clustering methods in the biological context, using  datasets provided by the Seattle Organismal Molecular Atlases (SOMA) \cite{b1}. We will study five clustering algorithms: K-means, spectral, nearest neighbors, hierarchical clustering and multivariate Gaussian mixture and evaluate how they perform relative to each other in inferring biologically interpretative structure from the single-cell data.
+
+\section{Formal Statement of the Problem}
+
+Clustering algorithms typically involve many parameters, operate in high dimensional spaces and are dealing with noisy or incomplete data. For these reasons choosing a suitable clustering method for a given dataset or problem is a nontrivial task and crucial for achieving good results. We will be trying to identify what factors are most important to take into account when clustering with single cell datasets for a whole organism. 
+
+\section{Related Work}
+There has been extensive work in the realm of using real world data sets for clustering analysis. For example, in \cite{b5} the authors aim to evaluate different methods applied to several large credit risk and bankruptcy data sets. Similarly in \cite{b6}, a comparative evaluation was done on these same methods in the context of speaker-verification tasks. Other work has been done that is not domain-specific, too, such as in \cite{b4} and \cite{b7}.
+
+It will also be interesting to read about the papers that came out of experiments done on the datasets we plan to work with. In \cite{b2}, the authors use single-cell combinatorial indexing assay for transposase accessible chromatin with sequencing (sci-ATAC-seq) to evaluate the chromatin of \textit{Drosophila melanogaster} (common fruit fly) nuclei at various lengths of time following the egg laying. It was found that spatially distinct cell populations can be observed in clusters after just 2-4 hours, and after 6-8 hours cell types can be inferred from chromatin accessibility. We expect that these data will be an interesting litmus test to compare our methods because it seems as if clustering on gene expression will perform better as the embryos age. In \cite{b3}, the authors use single-cell combinatorial indexing RNA sequencing (sci-RNA-seq) to profile cells from \textit{Caenorhabditis elegans} (roundworm) larvae. \textit{C. elegans} is unique in the sense that it is the only multicellular organism with all cells and cell types defined. Additionally in \cite{b2}, the authors state that \textit{Drosophila} endoderm and mesoderm bear resemblance to that of \textit{C. elegans}. Thus, it may be possible that similar patterns may appear across the two datasets that would be accessible for us to observe.
+
+\section{Contributions}
+
+Our main contributions and goals are to show what clustering methods perform the best on these datasets and why. We will be performing a quantitative analysis of the strengths and weaknesses of the various clustering methods applied to single-cells datasets. It would be nice if were able to provide (or replicate) any insights about the methods that are more generalize-able.
+
+\section{Datasets}
+
+We plan to use the fly and worm data from the Seattle Organismal Molecular Atlases (SOMA) \cite{b1}.
+
+\section{Intended Experiments}
+We plan to cluster the fly and worm data using the following methods: K-means, spectral, nearest neighbors, hierarchical clustering and multivariate Gaussian mixture.
+
+We will evaluate each method on the quality of the clusters formed using metrics like NMI, area under the ROC curve and cosine similarly. We will also measure the scalability of each approach by taking performance measurements, comparing the run-times of the algorithms with different numbers of cells and features.
+
+\section{Expected Challenges}
+One challenge will be identifying meaningful biological implications (or lack thereof) in our results. Neither of us have a strong biological background, so doing some reading on and background research on things to be on the lookout for with these particular organism will be important. 
+
+\section{Implementation}
+At the end we will provide a Github repo with all of our code and documentation. The inputs will be the pre-processed fly and worm datasets (need to add more here) We would provide the outputs of each of the methods individually, providing some plots/graphics and in addition to metrics capturing how well it performed (ex: normalized mutual information, area under the ROC curve) We will also provide the code for performing the different runtime experiments and the associated charts we produce.
+
+\section{Preliminary Results}
+As of right now, we don't have any preliminary results to share. The proposed timeline for the remainder of our project is as follows:
+
+03/14/21: Get comfortable with the 2 datasets by reading the papers, tutorials and documentations provided by the authors.
+
+03/21/21: Complete any necessary pre-processing of the fly and worm data.
+
+03/28/21: First two clustering methods done.
+
+04/14/21: All experiments done.
+
+04/21/21: First draft of project paper done, including the comparisons between the different methods.
+
+\begin{thebibliography}{00}
+\bibitem{b1} https://atlas.gs.washington.edu/hub/
+\bibitem{b2} Cusanovich, D., Reddington, J., Garfield, D. et al. The cis-regulatory dynamics of embryonic development at single-cell resolution. Nature 555, 538–542 (2018). https://doi.org/10.1038/nature25981
+\bibitem{b3} Cao J, Packer JS, Ramani V, et al. Comprehensive single-cell transcriptional profiling of a multicellular organism. Science. 2017;357(6352):661-667. doi:10.1126/science.aam8940
+\bibitem{b4} Abu Abbas, Osama. (2008). Comparisons Between Data Clustering Algorithms. Int. Arab J. Inf. Technol.. 5. 320-325. 
+\bibitem{b5} Kou G, Peng Y, Wang G. Evaluation of clustering algorithms for financial risk analysis using MCDM methods. Information Sciences. 2014;275:1–12.
+\bibitem{b6}  Kinnunen T, Sidoroff I, Tuononen M, Fränti P. Comparison of clustering methods: A case study of text-independent speaker modeling. Pattern Recognition Letters. 2011;32(13):1604–1617.
+\bibitem{b7} Rodriguez MZ, Comin CH, Casanova D, et al. Clustering algorithms: A comparative approach. PLoS One. 2019;14(1):e0210236. Published 2019 Jan 15. doi:10.1371/journal.pone.0210236
+\end{thebibliography}
+
+\end{document}
+
